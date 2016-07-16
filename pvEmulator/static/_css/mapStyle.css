@@ -1,0 +1,29 @@
+﻿/* First Example CSS*/
+
+/*html, body, #map-canvas
+{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}*/
+
+/* Second Example CSS*/
+html
+{
+    height: 60%;
+    width: 50%;
+}
+
+body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map_canvas
+{
+    height: 100%;
+}
+
+

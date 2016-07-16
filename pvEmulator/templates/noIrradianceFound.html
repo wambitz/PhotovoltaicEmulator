@@ -1,0 +1,22 @@
+<div id="noFeatures">
+    <p class="alert">
+        No Irradiance found or all stations equaled zero, please be more specific in your search,
+        <br />
+        select another location or input value manually. Otherwise select manual user mode.         
+    </p>
+
+    <table class="table">
+            
+            <tr><td>Temperature for last station found: <span id="lastStationTemperature">{{ temperatureCelsius }}</span><br /><td></tr>
+            <tr><td>From: {{observationLocation}} at: {{ observationTime }}<br /></td></tr>
+            <tr><td>Latidude {{ stationLatitude }}, Longitude: {{ stationLongitude }}</td></tr>
+    </table>
+    
+
+    Irradiance(W/m^2):
+    <input id="lastStationIrradiance" type="text" />
+</div>
+
+<div>
+    <input onclick="inputNotFoundIrradiance()" type="button" class="btn" value="Plot" />
+</div>

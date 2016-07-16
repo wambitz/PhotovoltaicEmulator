@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <meta charset="utf-8" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=FALSE" type="text/javascript"></script>
+    <link href="{{ url_for('static', filename='_bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='_bootstrap/js/bootstrap.js') }}" type="text/javascript"></script> 
+    <link href="{{ url_for('static', filename='_css/styles.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='_scripts/script.js') }}" type="text/javascript"></script> 
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+
+    <title>Photovoltaic Emulator</title>
+</head>
+
+<body>
+    <!--  <form method='POST' action='#'> -->
+    <
+    <div class="hide" id="mapCanvas"></div>
+
+    <div>
+        <h2>Select Photovoltaic Module</h2>
+
+        <input type="radio" name="model" value="MSX60" checked />
+        Multi-crystal MSX60 PV module
+        <br />
+        <input type="radio" name="model" value="KG200GT" />
+        Multi-crystal Kyocera KG200GT PV module<br />
+    </div>
+
+
+    <div>
+        <h2>Select user mode</h2>
+        <input onclick="userMode(this)" type="radio" name="user" value="manual" />
+        Set up test conditions manually (Temperature and Irradiance)<br />
+        <input onclick="userMode(this)" type="radio" name="user" value="geocode" />
+        Set up test conditions by geographic location<br />
+    </div>
+
+
+    <div class="hide" id="userConditions">
+        <h2>User inputs:</h2>
+        Temperature(°C):<input type="text" id="temperature" name="temperature" placeholder="25" autofocus />
+        <img id="temperatureHelp" src="{{url_for('static', filename='_images/helpIcon.png')}}" title="temperature"><br />
+        Irradiance(W/m^2) :<input type="text" id="irradiance" name="irradiance" placeholder="1000" />
+        <img id="irradianceHelp" src="{{url_for('static', filename='_images/helpIcon.png')}}" title="irradiance"><br />
+    </div>
+
+
+    <div class="hide" id="userInputLocation">
+        <h2>Select location:</h2>
+        Input desired location:<input type="text" id="location" name="location" placeholder="Lieu, City, Country" autofocus />
+        <img id="geocodeHelp" src="{{url_for('static', filename='_images/helpIcon.png')}}" title="geocode"><br />
+    </div>
+
+
+    <div>
+        <input type="button" class="hide" id="geoCode" name="submit" value="Geocode" onclick="showGraphics()" />
+    </div>
+
+
+    <div>
+        <input type="button" class="hide" id="submit" name="submit" value="Plot" onclick="showGraphics()" />
+    </div>
+
+
+    <div class="hide" id="table"></div>
+
+
+    <div class="hide" id="curves">
+        <header>
+            <h1>I-V & P-V Model Curves</h1>
+        </header>
+
+        <div id="graphics"></div>
+
+    </div>
+
+</body>
+</html>

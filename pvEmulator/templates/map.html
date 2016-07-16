@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> -->
+    <link href="{{ url_for('static', filename='_css/mapStyle.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='_scripts/mapScript.js') }}" type="text/javascript"></script>
+
+
+    <title>Photovoltaic Emulator</title>
+</head>
+<!-- First Example Map Canvas
+    <body>
+    <div id="map-canvas"></div>
+</body>
+-->
+
+<!-- Second Example Map Canvas-->
+
+<body>
+    <div class="hide" id="userInputLocation">
+        <h2>Select location:</h2>
+        Input desired location:<input type="text" id="location" name="location" value="Mexico" autofocus /><br />
+    </div>
+
+    <div>
+        <input type="button" id="geoCode" name="submit" value="Nearest Station" onclick="codeAddress()" />
+    </div>
+
+    <div class="hide" id="mapCanvas" style="width: 100%; height: 100%"></div>
+
+
+</body>
+</html>
